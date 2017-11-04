@@ -28,6 +28,7 @@ public class SectionLoader {
                             }
                         },0,1000,TimeUnit.MILLISECONDS));
         System.out.println("ride: "+ this.ride.toString());
+
     }
 
     private void doSection(Section section){
