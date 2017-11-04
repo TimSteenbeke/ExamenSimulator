@@ -12,6 +12,10 @@ public class Ride {
     }
 
 
+    public void addSection(Section section) {
+        this.rideSections.add(section);
+    }
+
     @Override
     public String toString() {
         return "Ride{" +

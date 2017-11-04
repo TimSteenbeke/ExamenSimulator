@@ -8,12 +8,15 @@ import static org.junit.Assert.assertTrue;
 
 public class RideTest {
     private final List<Integer> rides = Arrays.asList(1,2,3,4,5,6,7);
+    RideRouter rr = new RideRouter();
 
     @Test
     public void doTestrun() throws Exception {
-        for (int rideId:rides) {
-            new RideRouter().start(rideId);
-        }
+        rides.forEach(rideId-> {
+            rr.inputRide(rideId);
+        });
+        rr.start();
+        Thread.sleep(1000);
         assertTrue("it should reach this point without crashing", true);
     }
 }

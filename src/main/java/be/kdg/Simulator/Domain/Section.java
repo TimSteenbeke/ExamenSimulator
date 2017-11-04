@@ -11,7 +11,7 @@ public class Section {
     private int blockLength;
     private String crossings;
     private boolean singleDirection;
-    private int highBlocknumberSectionIds;
+    private String highBlocknumberSectionIds;
 
     private List<Block> Blocks = new ArrayList<>();
 
@@ -20,19 +20,12 @@ public class Section {
         this.speed = speed;
     }
 
-    public void setInfoSection(int numberOfBlocks, int blockLength, String crossings, boolean singleDirection, int highBlocknumberSectionIds){
+    public void setInfoSection(int numberOfBlocks, int blockLength, String crossings, boolean singleDirection, String highBlocknumberSectionIds){
         this.numberOfBlocks = numberOfBlocks;
         this.blockLength=blockLength;
         this.crossings=crossings;
         this.singleDirection=singleDirection;
         this.highBlocknumberSectionIds=highBlocknumberSectionIds;
-    }
-
-    public void setInfoSection(int numberOfBlocks, int blockLength, String crossings, boolean singleDirection){
-        this.numberOfBlocks = numberOfBlocks;
-        this.blockLength=blockLength;
-        this.crossings=crossings;
-        this.singleDirection=singleDirection;
     }
 
     @Override
@@ -47,5 +40,9 @@ public class Section {
                 ", highBlocknumberSectionIds=" + highBlocknumberSectionIds +
                 ", Blocks=" + Blocks +
                 '}';
+    }
+
+    public int getSectionId() {
+        return sectionId;
     }
 }
