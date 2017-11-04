@@ -1,4 +1,4 @@
-package be.kdg.Simulator.block;
+package be.kdg.Simulator.Domain;
 
 public class CrossingBlock implements Block {
 
