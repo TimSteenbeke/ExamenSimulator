@@ -1,22 +1,26 @@
-import be.kdg.Simulator.ServiceCallers.RideRouter;
+import be.kdg.Simulator.RideSimulator;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.Assert.assertTrue;
 
 public class RideTest {
-    private final List<Integer> rides = Arrays.asList(1,2,3,4,5,6,7);
-    RideRouter rr = new RideRouter();
+    private final Map<Integer,Integer> trainRides = new HashMap<>();
+    RideSimulator rs = new RideSimulator();
 
     @Test
     public void doTestrun() throws Exception {
-        rides.forEach(rideId-> {
-            rr.inputRide(rideId);
+        trainRides.put(31,5000);
+        trainRides.put(42,10000);
+        trainRides.put(33,10000);
+        trainRides.keySet().forEach(rideId-> {
+            rs.addRide(rideId, trainRides.get(rideId));
         });
-        rr.start();
-        Thread.sleep(1000);
+        rs.simulate();
+        Thread.sleep(20000);
         assertTrue("it should reach this point without crashing", true);
+
     }
 }

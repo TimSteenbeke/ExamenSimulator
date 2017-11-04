@@ -14,4 +14,7 @@ dependencies {
     compile group: 'org.glassfish', name: 'javax.json', version: '1.0.4'
     compile files('libs/infrastructure-service-1.0.jar', 'libs/route-service-1.0.jar')
     compile 'org.json:json:20090211'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.21'
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
 }
