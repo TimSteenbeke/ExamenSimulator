@@ -1,7 +1,7 @@
 package be.kdg.Simulator;
 
 import be.kdg.Simulator.Domain.Ride;
-import be.kdg.Simulator.DomainLoader.RideRouter;
+import be.kdg.Simulator.DomainLoader.RideLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,7 +26,7 @@ public class TrainRideSimulator {
     public void addRide(Integer rideId, Integer delay) {
         Ride ride = new Ride(rideId,delay);
         logger.info("Ride created:  " + ride.getRideId());
-        new RideRouter().getRoute(ride);
+        new RideLoader().getRoute(ride);
         ridesList.add(ride);
     }
 

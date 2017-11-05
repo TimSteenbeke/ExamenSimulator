@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class RideRouter {
-    private Logger logger = LoggerFactory.getLogger(RideRouter.class);
+public class RideLoader {
+    private Logger logger = LoggerFactory.getLogger(RideLoader.class);
     private final String url = "www.services4se3.com/railway/route/";
     private final RouteServiceProxy RSP = new RouteServiceProxy(); //TODO: creat new RSP for each ride ?
     private List<Section> sections = new ArrayList<>();

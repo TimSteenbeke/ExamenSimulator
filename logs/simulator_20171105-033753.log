@@ -1,6 +1,6 @@
 
 0    [main] INFO  be.kdg.Simulator.TrainRideSimulator  - Ride created:  1
-118  [main] INFO  be.kdg.Simulator.DomainLoader.RideRouter  - ride: 1 loaded
+118  [main] INFO  be.kdg.Simulator.DomainLoader.RideLoader  - ride: 1 loaded
 228  [main] INFO  be.kdg.Simulator.DomainLoader.SectionLoader  - Section: 1 loaded with info
 230  [main] INFO  be.kdg.Simulator.DomainLoader.BlockLoader  - 10 blocks loaded
 330  [main] INFO  be.kdg.Simulator.DomainLoader.SectionLoader  - Section: 5 loaded with info
@@ -8,7 +8,7 @@
 432  [main] INFO  be.kdg.Simulator.DomainLoader.SectionLoader  - Section: 7 loaded with info
 432  [main] INFO  be.kdg.Simulator.DomainLoader.BlockLoader  - 10 blocks loaded
 432  [main] INFO  be.kdg.Simulator.TrainRideSimulator  - Ride created:  2
-533  [main] INFO  be.kdg.Simulator.DomainLoader.RideRouter  - ride: 2 loaded
+533  [main] INFO  be.kdg.Simulator.DomainLoader.RideLoader  - ride: 2 loaded
 633  [main] INFO  be.kdg.Simulator.DomainLoader.SectionLoader  - Section: 1 loaded with info
 633  [main] INFO  be.kdg.Simulator.DomainLoader.BlockLoader  - 10 blocks loaded
 733  [main] INFO  be.kdg.Simulator.DomainLoader.SectionLoader  - Section: 5 loaded with info

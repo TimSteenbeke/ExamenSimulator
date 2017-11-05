@@ -12,11 +12,17 @@ import java.util.Date;
 
 public class Message {
     private Logger logger = LoggerFactory.getLogger(Message.class);
+    MessageSender ms = new MessageSender();
 
     public void createMessage(Ride ride, Section section, Block block, int delayTime) {
      //TODO: create message with rideId,SectionId,BlockNr,timestamp
         String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
         logger.info("Message: rideId=" + ride.getRideId() + ", sectionId=" + section.getSectionId() + ", blockNr=" + block.getBlockId() + ", delayTime=" + delayTime +", TimeStamp: " + timeStamp);
-
+        String xmlMessage = "rideId=" + ride.getRideId() + ", sectionId=" + section.getSectionId() + ", blockNr=" + block.getBlockId() +", TimeStamp: " + timeStamp;
+        try {
+            ms.sendMessage(xmlMessage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

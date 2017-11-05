@@ -13,7 +13,7 @@ public class RideTest {
     @Test
     public void doTestrun() throws Exception {
         trainRides.put(1,1000);
-        trainRides.put(2,2000);
+        //trainRides.put(2,2000);
         //trainRides.put(3,1000);
         trainRides.keySet().forEach(rideId-> {
             rs.addRide(rideId, trainRides.get(rideId));
