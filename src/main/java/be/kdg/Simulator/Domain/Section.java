@@ -1,5 +1,7 @@
 package be.kdg.Simulator.Domain;
 
+import be.kdg.Simulator.Domain.Block.Block;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +46,18 @@ public class Section {
         return blockLength;
     }
 
+    public int getSpeed() {
+        return speed;
+    }
+
+    public String getHighBlocknumberSectionId() {
+        return highBlocknumberSectionId;
+    }
+
+    public List<Block> getBlocks() {
+        return blocks;
+    }
+
     public boolean isSingleDirection() {
         return singleDirection;
     }
@@ -61,5 +75,15 @@ public class Section {
     public String toString() {
         return "Section: { sectionId: " + sectionId +", speed: " + speed + ", numberOfBlocks:" + numberOfBlocks +", blockLength: " + blockLength +
                 ", crossings: " + crossings + ", singleDirection: " + singleDirection +", highBlocknumberSectionId: " + highBlocknumberSectionId + '}';
+    }
+
+    public boolean hasBlocks() {
+        if(!blocks.isEmpty()) return true;
+
+        return false;
+    }
+
+    public void dropFirstBlock(){
+        blocks.remove(0);
     }
 }

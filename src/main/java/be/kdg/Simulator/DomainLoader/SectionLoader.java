@@ -31,6 +31,7 @@ public class SectionLoader {
                 highBlocknumberSectionId=obj.getString("highBlocknumberSectionId");
             }
             section.setInfoSection(numberOfBlocks,blockLength,crossings,singleDirection,highBlocknumberSectionId);
+            logger.info("Section: "+ section.getSectionId() + " loaded with info");
             loadBlocks(section);
 
         }catch(Exception e){

@@ -1,8 +1,8 @@
 package be.kdg.Simulator.DomainLoader;
 
-import be.kdg.Simulator.Domain.Block;
-import be.kdg.Simulator.Domain.CrossingBlock;
-import be.kdg.Simulator.Domain.DetectionBlock;
+import be.kdg.Simulator.Domain.Block.Block;
+import be.kdg.Simulator.Domain.Block.CrossingBlock;
+import be.kdg.Simulator.Domain.Block.DetectionBlock;
 import be.kdg.Simulator.Domain.Section;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +33,6 @@ public class BlockLoader {
             }
             section.addBlock(block);
         }
-        logger.info("Blocks Loaded: " + section.showBlocks());
+        logger.info(section.getBlocks().size() + " blocks loaded");
     }
 }

@@ -5,7 +5,7 @@ import com.rabbitmq.client.*;
 import java.io.IOException;
 
 public class MessageReceiver {
-    private final static String QUEUE_NAME = "BrokerQueue";
+    private final static String QUEUE_NAME = "testQueue";
 
     public static void main(String[] argv) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();

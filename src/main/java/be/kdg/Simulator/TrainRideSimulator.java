@@ -13,28 +13,38 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class RideSimulator {
-    private  Logger logger = LoggerFactory.getLogger(RideSimulator.class);
+public class TrainRideSimulator {
+    private  Logger logger = LoggerFactory.getLogger(TrainRideSimulator.class);
     private final List<Ride> ridesList = new ArrayList<>();
     private ScheduledExecutorService executorService = null;
+    private RideExecutor re = new RideExecutor();
     static{
-        SimpleDateFormat dateFormat = new SimpleDateFormat("ddmmyyyy_hhmmss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-hhmmss");
         System.setProperty("current.date", dateFormat.format(new Date()));
     }
 
     public void addRide(Integer rideId, Integer dealay) {
         Ride ride = new Ride(rideId,dealay);
+        logger.info("Ride created:  " + ride.getRideId());
         new RideRouter().getRoute(ride);
         ridesList.add(ride);
-        logger.info("Ride after getRoute: " + ride.toString());
     }
 
-    public void simulate(){
+    public void executeRide(Ride ride){
+        //TODO send start message
+        re.executeRide(ride);
+    }
+
+    public void start(){
+        String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
+        logger.info("Start: " + timeStamp);
         executorService= Executors.newScheduledThreadPool(ridesList.size());
         ridesList.forEach(ride-> executorService.schedule(
                 new Runnable() {
                     public void run() {
                         //TODO: start Messaging using ride
+                        executeRide(ride);
+
                     }
                 },ride.getDelay(), TimeUnit.MILLISECONDS));
 

@@ -23,6 +23,7 @@ public class RideRouter {
     public void getRoute(Ride ride) {
         try {
             String replay = RSP.get(url+ride.getRideId());
+            logger.info("ride: " + ride.getRideId() + " loaded");
             readReplay(replay);
         } catch (Exception e) {
             e.printStackTrace();
@@ -33,7 +34,7 @@ public class RideRouter {
         });
     }
 
-    //Reads JSON replay and creates sections
+    //Reads JSON replay, creates sections and adds them to the section list
     private void readReplay(String replay) {
         try{
         final JSONObject obj = new JSONObject(replay);
@@ -54,8 +55,6 @@ public class RideRouter {
     //Function: Get's section info for the given section
     public void loadSection(Section section) {
         new SectionLoader().getSectionInfo(section);
-        logger.info("loadSection with info: " + section.toString());
-
     }
     // Old code
     {/*private ScheduledExecutorService executorService = null;

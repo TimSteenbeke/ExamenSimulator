@@ -29,4 +29,19 @@ public class Ride {
     public String toString() {
         return "Ride: { rideId: " + rideId +", Delay: "+ delay + ", rideSections: " + rideSections +'}';
     }
+
+    public List<Section> getRideSections() {
+        return rideSections;
+    }
+
+    public boolean hasSections() {
+        if(!rideSections.isEmpty())
+            return true;
+
+        return false;
+    }
+
+    public void dropFirstSection() {
+        rideSections.remove(0);
+    }
 }

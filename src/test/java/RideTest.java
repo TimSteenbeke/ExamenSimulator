@@ -1,4 +1,4 @@
-import be.kdg.Simulator.RideSimulator;
+import be.kdg.Simulator.TrainRideSimulator;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -8,19 +8,20 @@ import static org.junit.Assert.assertTrue;
 
 public class RideTest {
     private final Map<Integer,Integer> trainRides = new HashMap<>();
-    RideSimulator rs = new RideSimulator();
+    TrainRideSimulator rs = new TrainRideSimulator();
 
     @Test
     public void doTestrun() throws Exception {
-        trainRides.put(31,5000);
-        trainRides.put(42,10000);
-        trainRides.put(33,10000);
+        trainRides.put(1,1000);
+        trainRides.put(2,2000);
+        //trainRides.put(3,1000);
         trainRides.keySet().forEach(rideId-> {
             rs.addRide(rideId, trainRides.get(rideId));
         });
-        rs.simulate();
+        rs.start();
         //TODO fix thread running
-        Thread.sleep(20000);
+        Thread.sleep(40000);
+        rs.stop();
         assertTrue("it should reach this point without crashing", true);
 
     }
