@@ -1,0 +1,62 @@
+
+0    [main] INFO  be.kdg.Simulator.TrainRideSimulator  - Ride created:  1
+118  [main] INFO  be.kdg.Simulator.DomainLoader.RideRouter  - ride: 1 loaded
+228  [main] INFO  be.kdg.Simulator.DomainLoader.SectionLoader  - Section: 1 loaded with info
+230  [main] INFO  be.kdg.Simulator.DomainLoader.BlockLoader  - 10 blocks loaded
+330  [main] INFO  be.kdg.Simulator.DomainLoader.SectionLoader  - Section: 5 loaded with info
+330  [main] INFO  be.kdg.Simulator.DomainLoader.BlockLoader  - 3 blocks loaded
+432  [main] INFO  be.kdg.Simulator.DomainLoader.SectionLoader  - Section: 7 loaded with info
+432  [main] INFO  be.kdg.Simulator.DomainLoader.BlockLoader  - 10 blocks loaded
+432  [main] INFO  be.kdg.Simulator.TrainRideSimulator  - Ride created:  2
+533  [main] INFO  be.kdg.Simulator.DomainLoader.RideRouter  - ride: 2 loaded
+633  [main] INFO  be.kdg.Simulator.DomainLoader.SectionLoader  - Section: 1 loaded with info
+633  [main] INFO  be.kdg.Simulator.DomainLoader.BlockLoader  - 10 blocks loaded
+733  [main] INFO  be.kdg.Simulator.DomainLoader.SectionLoader  - Section: 5 loaded with info
+733  [main] INFO  be.kdg.Simulator.DomainLoader.BlockLoader  - 3 blocks loaded
+835  [main] INFO  be.kdg.Simulator.DomainLoader.SectionLoader  - Section: 7 loaded with info
+835  [main] INFO  be.kdg.Simulator.DomainLoader.BlockLoader  - 10 blocks loaded
+835  [main] INFO  be.kdg.Simulator.TrainRideSimulator  - Start: 2017/11/05 15:37:54
+1840 [pool-1-thread-1] INFO  be.kdg.Simulator.RideExecutor  - Ride Executed: 1 timestamp: 2017/11/05 15:37:55
+2841 [pool-1-thread-2] INFO  be.kdg.Simulator.RideExecutor  - Ride Executed: 2 timestamp: 2017/11/05 15:37:56
+3841 [pool-1-thread-1] INFO  be.kdg.MessageBroker.Message  - Message: rideId=1, sectionId=1, blockNr=1, delayTime=2, TimeStamp: 2017/11/05 15:37:57
+3841 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=1, blockNr=1, delayTime=1, TimeStamp: 2017/11/05 15:37:57
+4841 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=1, blockNr=2, delayTime=1, TimeStamp: 2017/11/05 15:37:58
+5842 [pool-1-thread-1] INFO  be.kdg.MessageBroker.Message  - Message: rideId=1, sectionId=1, blockNr=2, delayTime=2, TimeStamp: 2017/11/05 15:37:59
+5842 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=1, blockNr=3, delayTime=1, TimeStamp: 2017/11/05 15:37:59
+6842 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=1, blockNr=4, delayTime=1, TimeStamp: 2017/11/05 15:38:00
+7842 [pool-1-thread-1] INFO  be.kdg.MessageBroker.Message  - Message: rideId=1, sectionId=1, blockNr=3, delayTime=2, TimeStamp: 2017/11/05 15:38:01
+7843 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=1, blockNr=5, delayTime=1, TimeStamp: 2017/11/05 15:38:01
+8843 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=1, blockNr=6, delayTime=1, TimeStamp: 2017/11/05 15:38:02
+9842 [pool-1-thread-1] INFO  be.kdg.MessageBroker.Message  - Message: rideId=1, sectionId=1, blockNr=4, delayTime=2, TimeStamp: 2017/11/05 15:38:03
+9844 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=1, blockNr=7, delayTime=1, TimeStamp: 2017/11/05 15:38:03
+10844 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=1, blockNr=8, delayTime=1, TimeStamp: 2017/11/05 15:38:04
+11843 [pool-1-thread-1] INFO  be.kdg.MessageBroker.Message  - Message: rideId=1, sectionId=1, blockNr=5, delayTime=2, TimeStamp: 2017/11/05 15:38:05
+11844 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=1, blockNr=9, delayTime=1, TimeStamp: 2017/11/05 15:38:05
+12844 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=1, blockNr=10, delayTime=1, TimeStamp: 2017/11/05 15:38:06
+13843 [pool-1-thread-1] INFO  be.kdg.MessageBroker.Message  - Message: rideId=1, sectionId=1, blockNr=6, delayTime=2, TimeStamp: 2017/11/05 15:38:07
+13845 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=5, blockNr=1, delayTime=1, TimeStamp: 2017/11/05 15:38:07
+14845 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=5, blockNr=2, delayTime=1, TimeStamp: 2017/11/05 15:38:08
+15843 [pool-1-thread-1] INFO  be.kdg.MessageBroker.Message  - Message: rideId=1, sectionId=1, blockNr=7, delayTime=2, TimeStamp: 2017/11/05 15:38:09
+15845 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=5, blockNr=3, delayTime=1, TimeStamp: 2017/11/05 15:38:09
+16845 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=7, blockNr=1, delayTime=1, TimeStamp: 2017/11/05 15:38:10
+17843 [pool-1-thread-1] INFO  be.kdg.MessageBroker.Message  - Message: rideId=1, sectionId=1, blockNr=8, delayTime=2, TimeStamp: 2017/11/05 15:38:11
+17846 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=7, blockNr=2, delayTime=1, TimeStamp: 2017/11/05 15:38:11
+18846 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=7, blockNr=3, delayTime=1, TimeStamp: 2017/11/05 15:38:12
+19843 [pool-1-thread-1] INFO  be.kdg.MessageBroker.Message  - Message: rideId=1, sectionId=1, blockNr=9, delayTime=2, TimeStamp: 2017/11/05 15:38:13
+19846 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=7, blockNr=4, delayTime=1, TimeStamp: 2017/11/05 15:38:13
+20847 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=7, blockNr=5, delayTime=1, TimeStamp: 2017/11/05 15:38:14
+21843 [pool-1-thread-1] INFO  be.kdg.MessageBroker.Message  - Message: rideId=1, sectionId=1, blockNr=10, delayTime=2, TimeStamp: 2017/11/05 15:38:15
+21847 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=7, blockNr=6, delayTime=1, TimeStamp: 2017/11/05 15:38:15
+22848 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=7, blockNr=7, delayTime=1, TimeStamp: 2017/11/05 15:38:16
+23843 [pool-1-thread-1] INFO  be.kdg.MessageBroker.Message  - Message: rideId=1, sectionId=5, blockNr=1, delayTime=2, TimeStamp: 2017/11/05 15:38:17
+23848 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=7, blockNr=8, delayTime=1, TimeStamp: 2017/11/05 15:38:17
+24849 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=7, blockNr=9, delayTime=1, TimeStamp: 2017/11/05 15:38:18
+25844 [pool-1-thread-1] INFO  be.kdg.MessageBroker.Message  - Message: rideId=1, sectionId=5, blockNr=2, delayTime=2, TimeStamp: 2017/11/05 15:38:19
+25849 [pool-1-thread-2] INFO  be.kdg.MessageBroker.Message  - Message: rideId=2, sectionId=7, blockNr=10, delayTime=1, TimeStamp: 2017/11/05 15:38:19
+27844 [pool-1-thread-1] INFO  be.kdg.MessageBroker.Message  - Message: rideId=1, sectionId=5, blockNr=3, delayTime=2, TimeStamp: 2017/11/05 15:38:21
+29844 [pool-1-thread-1] INFO  be.kdg.MessageBroker.Message  - Message: rideId=1, sectionId=7, blockNr=1, delayTime=2, TimeStamp: 2017/11/05 15:38:23
+31844 [pool-1-thread-1] INFO  be.kdg.MessageBroker.Message  - Message: rideId=1, sectionId=7, blockNr=2, delayTime=2, TimeStamp: 2017/11/05 15:38:25
+33845 [pool-1-thread-1] INFO  be.kdg.MessageBroker.Message  - Message: rideId=1, sectionId=7, blockNr=3, delayTime=2, TimeStamp: 2017/11/05 15:38:27
+35845 [pool-1-thread-1] INFO  be.kdg.MessageBroker.Message  - Message: rideId=1, sectionId=7, blockNr=4, delayTime=2, TimeStamp: 2017/11/05 15:38:29
+37845 [pool-1-thread-1] INFO  be.kdg.MessageBroker.Message  - Message: rideId=1, sectionId=7, blockNr=5, delayTime=2, TimeStamp: 2017/11/05 15:38:31
+39846 [pool-1-thread-1] INFO  be.kdg.MessageBroker.Message  - Message: rideId=1, sectionId=7, blockNr=6, delayTime=2, TimeStamp: 2017/11/05 15:38:33

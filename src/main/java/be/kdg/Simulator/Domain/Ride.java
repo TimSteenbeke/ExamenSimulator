@@ -6,7 +6,7 @@ import java.util.List;
 public class Ride {
     private int rideId;
     private int delay;
-    private List<Section> rideSections = new ArrayList<>();
+    private List<Section> sections = new ArrayList<>();
 
     public Ride(Integer rideId, Integer dealay) {
         this.rideId=rideId;
@@ -21,27 +21,30 @@ public class Ride {
         return delay;
     }
 
+    public List<Section> getSections() {
+        return sections;
+    }
+
     public void addSection(Section section) {
-        this.rideSections.add(section);
-    }
-
-    @Override
-    public String toString() {
-        return "Ride: { rideId: " + rideId +", Delay: "+ delay + ", rideSections: " + rideSections +'}';
-    }
-
-    public List<Section> getRideSections() {
-        return rideSections;
+        this.sections.add(section);
     }
 
     public boolean hasSections() {
-        if(!rideSections.isEmpty())
+        if(!sections.isEmpty())
             return true;
 
         return false;
     }
 
-    public void dropFirstSection() {
-        rideSections.remove(0);
+    public void removeFirstSection() {
+        sections.remove(0);
+    }
+    public void removeSection(Section section){
+        sections.remove(section);
+    }
+
+    @Override
+    public String toString() {
+        return "Ride: { rideId: " + rideId +", Delay: "+ delay + ", sections: " + sections +'}';
     }
 }

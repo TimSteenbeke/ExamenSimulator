@@ -23,8 +23,8 @@ public class TrainRideSimulator {
         System.setProperty("current.date", dateFormat.format(new Date()));
     }
 
-    public void addRide(Integer rideId, Integer dealay) {
-        Ride ride = new Ride(rideId,dealay);
+    public void addRide(Integer rideId, Integer delay) {
+        Ride ride = new Ride(rideId,delay);
         logger.info("Ride created:  " + ride.getRideId());
         new RideRouter().getRoute(ride);
         ridesList.add(ride);

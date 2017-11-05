@@ -17,7 +17,7 @@ public class RideExecutor {
         String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
         logger.info("Ride Executed: " + ride.getRideId() + " timestamp: " + timeStamp);
         while(ride.hasSections()){
-            Section section = ride.getRideSections().get(0);
+            Section section = ride.getSections().get(0);
             int speed = section.getSpeed();
             int blockLenght = section.getBlockLength();
             int delayTime= blockLenght/speed;
@@ -30,10 +30,10 @@ public class RideExecutor {
                 }
                 new Message().createMessage(ride,section,block,delayTime);
                 //System.out.println("dropping block: " + block);
-                section.dropFirstBlock();
+                section.removeFirstBlock();
             }
             //System.out.println("dropping section: " + section);
-            ride.dropFirstSection();
+            ride.removeFirstSection();
         }
 
     }
