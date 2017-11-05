@@ -1,0 +1,2 @@
+0    [main] INFO  be.kdg.Simulator.DomainLoader.SectionLoader  - SectionInfo set: Section: { sectionId: 2, speed: 34, numberOfBlocks:10, blockLength: 20, crossings: 3-7, singleDirection: true, highBlocknumberSectionId: }
+1    [main] INFO  be.kdg.Simulator.DomainLoader.RideRouter  - loadSection with info: Section: { sectionId: 2, speed: 34, numberOfBlocks:10, blockLength: 20, crossings: 3-7, singleDirection: true, highBlocknumberSectionId: }

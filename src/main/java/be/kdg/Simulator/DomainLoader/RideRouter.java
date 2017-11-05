@@ -1,4 +1,4 @@
-package be.kdg.Simulator.ServiceCallers;
+package be.kdg.Simulator.DomainLoader;
 
 
 import be.kdg.Simulator.Domain.Ride;
@@ -9,26 +9,56 @@ import org.slf4j.LoggerFactory;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class RideRouter {
     private Logger logger = LoggerFactory.getLogger(RideRouter.class);
-    private String url = "www.services4se3.com/railway/route/";
-    private RouteServiceProxy RSP = new RouteServiceProxy();
+    private final String url = "www.services4se3.com/railway/route/";
+    private final RouteServiceProxy RSP = new RouteServiceProxy(); //TODO: creat new RSP for each ride ?
+    private List<Section> sections = new ArrayList<>();
 
+    //Function: makes call to RouteServiceProxy (RSP) to load the Route for the given Ride
     public void getRoute(Ride ride) {
-        try{
-            final JSONObject obj = new JSONObject(RSP.get(url+ride.getRideId()));
-            System.out.println("RSP.get: " + RSP.get(url+ride.getRideId()));
-            final JSONArray routeSections = obj.getJSONArray("routeSections");
-            for(int i=0;i<routeSections.length();i++){
-                Section section = new Section(routeSections.getJSONObject(i).getInt("section"), routeSections.getJSONObject(i).getInt("speed"));
-                ride.addSection(section);
-            }
+        try {
+            String replay = RSP.get(url+ride.getRideId());
+            readReplay(replay);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        sections.forEach(section->{
+            loadSection(section);
+            ride.addSection(section);
+        });
     }
-    /*private ScheduledExecutorService executorService = null;
+
+    //Reads JSON replay and creates sections
+    private void readReplay(String replay) {
+        try{
+        final JSONObject obj = new JSONObject(replay);
+        final JSONArray routeSections = obj.getJSONArray("routeSections");
+        for (int i = 0; i < routeSections.length(); i++) {
+            int sectionId = routeSections.getJSONObject(i).getInt("section");
+            int speed = routeSections.getJSONObject(i).getInt("speed");
+            if (speed != 0 && sectionId != 0) {
+                Section section = new Section(sectionId, speed);
+                sections.add(section);
+            }
+        }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Function: Get's section info for the given section
+    public void loadSection(Section section) {
+        new SectionLoader().getSectionInfo(section);
+        logger.info("loadSection with info: " + section.toString());
+
+    }
+    // Old code
+    {/*private ScheduledExecutorService executorService = null;
     private RouteServiceProxy RSP = new RouteServiceProxy();
     private SectionLoader sl = null;
     private String url = "www.services4se3.com/railway/route/";
@@ -71,5 +101,5 @@ public class RideRouter {
 //        System.out.println("stop rideRouter");
     }*/
 
-
+    }
 }

@@ -13,6 +13,10 @@ public class Ride {
         this.delay=dealay;
     }
 
+    public int getRideId() {
+        return rideId;
+    }
+
     public int getDelay() {
         return delay;
     }
@@ -23,13 +27,6 @@ public class Ride {
 
     @Override
     public String toString() {
-        return "Ride{" +
-                "rideId=" + rideId +
-                ", rideSections=" + rideSections +
-                '}';
-    }
-
-    public int getRideId() {
-        return rideId;
+        return "Ride: { rideId: " + rideId +", Delay: "+ delay + ", rideSections: " + rideSections +'}';
     }
 }

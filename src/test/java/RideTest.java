@@ -19,6 +19,7 @@ public class RideTest {
             rs.addRide(rideId, trainRides.get(rideId));
         });
         rs.simulate();
+        //TODO fix thread running
         Thread.sleep(20000);
         assertTrue("it should reach this point without crashing", true);
 
