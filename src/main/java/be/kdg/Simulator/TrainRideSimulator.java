@@ -50,6 +50,7 @@ public class TrainRideSimulator {
         ridesList.forEach(ride -> executorService.schedule(() -> {
             executeRide(ride);
 
+
         }, ride.getDelay(), TimeUnit.MILLISECONDS));
 
     }
