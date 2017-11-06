@@ -39,8 +39,26 @@ public class Ride {
     public void removeFirstSection() {
         sections.remove(0);
     }
+
     public void removeSection(Section section){
         sections.remove(section);
+    }
+
+    public boolean hasNextSection(int index){
+        if(sections.size()-1>index)
+            return true;
+        return false;
+    }
+
+    public Section getSection(int sectionId){
+        final Section[] sectionGet = {null};
+        sections.forEach(section->{
+            if(section.getSectionId()==sectionId)
+            {
+                sectionGet[0] =section;
+            }
+        });
+        return sectionGet[0];
     }
 
     @Override

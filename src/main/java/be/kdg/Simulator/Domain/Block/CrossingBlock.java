@@ -5,31 +5,32 @@ public class CrossingBlock implements Block {
     private int blockId;
     private int blockLength;
     private boolean singleDirection;
+    private int sectionIdBlock;
 
-    public CrossingBlock(int blockId, int blockLength, boolean singleDirection) {
+    public CrossingBlock(int blockId, int blockLength, boolean singleDirection, int sectionIdBlock) {
         this.blockId = blockId;
         this.blockLength = blockLength;
         this.singleDirection = singleDirection;
+        this.sectionIdBlock = sectionIdBlock;
     }
 
+    @Override
     public int getBlockId() {
         return blockId;
     }
 
+    @Override
     public int getBlockLength() {
         return blockLength;
     }
 
+    @Override
     public boolean isSingleDirection() {
         return singleDirection;
     }
 
     @Override
-    public String toString() {
-        return "CrossingBlock{" +
-                "blockId=" + blockId +
-                ", blockLength=" + blockLength +
-                ", singleDirection=" + singleDirection +
-                '}';
+    public int getSectionIdBlock() {
+        return sectionIdBlock;
     }
 }

@@ -75,6 +75,12 @@ public class Section {
         return false;
     }
 
+    public boolean hasNextBlock(int index){
+        if(blocks.size()-1>index)
+            return true;
+        return false;
+    }
+
     public void removeFirstBlock(){blocks.remove(0);}
 
     public void removeBlock(Block block){blocks.remove(block);}

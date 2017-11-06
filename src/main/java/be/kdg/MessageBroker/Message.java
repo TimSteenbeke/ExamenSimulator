@@ -1,8 +1,5 @@
 package be.kdg.MessageBroker;
 
-import be.kdg.Simulator.Domain.Block.Block;
-import be.kdg.Simulator.Domain.Ride;
-import be.kdg.Simulator.Domain.Section;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,17 +9,39 @@ import java.util.Date;
 
 public class Message {
     private Logger logger = LoggerFactory.getLogger(Message.class);
-    MessageSender ms = new MessageSender();
+    private MessageSender ms = new MessageSender();
+    private String timeStamp, xmlMessage;
 
-    public void createMessage(Ride ride, Section section, Block block, int delayTime) {
-     //TODO: create message with rideId,SectionId,BlockNr,timestamp
-        String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
-        logger.info("Message: rideId=" + ride.getRideId() + ", sectionId=" + section.getSectionId() + ", blockNr=" + block.getBlockId() + ", delayTime=" + delayTime +", TimeStamp: " + timeStamp);
-        String xmlMessage = "rideId=" + ride.getRideId() + ", sectionId=" + section.getSectionId() + ", blockNr=" + block.getBlockId() +", TimeStamp: " + timeStamp;
+    public void detectionMessage(int rideId, int sectionId, int blockNr) {
+     //TODO: create XML message
+        timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
+        xmlMessage = "<detectionMessage> " +
+                "<rideId>"+rideId+"</rideId>"+
+                "<sectionId>" + sectionId + "</sectionId>" +
+                "<blockNr>" + blockNr + "</blockNr>" +
+                "<TimeStamp>" + timeStamp +"<TimeStamp>" +
+                "</detectionMessage>";
+        logger.info("Message:" + xmlMessage );
+        sendMessage(xmlMessage);
+    }
+
+    public void signalMessage(int sectionId, int blockNr, int signal) {
+        timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
+        xmlMessage = "<signalMessage> " +
+                "<sectionId>" + sectionId + "</sectionId>" +
+                "<blockNr>" + blockNr + "</blockNr>" +
+                "<signal>" + signal + "</signal>" +
+                "<TimeStamp>" + timeStamp +"<TimeStamp>" +
+                "</signalMessage>";
+        logger.info("Message: " + xmlMessage);
+        sendMessage(xmlMessage);
+    }
+
+    private void sendMessage(String message){
         try {
-            ms.sendMessage(xmlMessage);
+            ms.sendMessage(message);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Exception" + e.toString());
         }
     }
 }

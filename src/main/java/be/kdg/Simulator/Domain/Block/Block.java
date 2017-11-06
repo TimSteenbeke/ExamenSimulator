@@ -8,5 +8,9 @@ public interface Block {
 
     boolean isSingleDirection();
 
+    int getSectionIdBlock();
+
+    String toString();
+
 
 }
