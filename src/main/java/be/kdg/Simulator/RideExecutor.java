@@ -1,6 +1,7 @@
 package be.kdg.Simulator;
 
 import be.kdg.MessageBroker.Message;
+import be.kdg.MessageBroker.MessageReceiver;
 import be.kdg.Simulator.Domain.Block.Block;
 import be.kdg.Simulator.Domain.Block.CrossingBlock;
 import be.kdg.Simulator.Domain.Ride;
@@ -22,28 +23,28 @@ public class RideExecutor {
     private List<Block> upcomingBlocks = new ArrayList<>();
     private Message message = new Message();
     private List<String> failingCrossings = new ArrayList<>();
-    private boolean endRide = false;
 
     private void setFailingCrossings() {
         failingCrossings.add("1-7");
         failingCrossings.add("7-9");
     }
 
-    public void executeRide(Ride ride) {
+    public void executeRide(Ride ride, MessageReceiver msgR) {
         setFailingCrossings();
         String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
         logger.info("Ride Executed: " + ride.getRideId() + " timestamp: " + timeStamp);
 
-        while (ride.hasSections() && !endRide) {
-            //System.out.println("ride: "+ride.getRideId()+" has sections");
+        while (ride.hasSections()) {
             Section section = ride.getSections().get(0);
-            int delayTime = section.getBlockLength() / section.getSpeed();
-            while (section.hasNextBlock(0) && !endRide) {
-                //System.out.println("Section: " + section.getSectionId() + " hasNextBlock");
+            while (section.hasNextBlock(0)) {
+                /*if(msgR.getMessages().size()>0){
+                    CheckMsgR(msgR,ride,section);
+                }*/
                 Block block = section.getBlocks().get(0);
+                long delayTime = block.getBlockLength() / section.getSpeed() * 1000;
                 editUpcomingBlocks(ride);
                 try {
-                    Thread.sleep(delayTime * 1000);
+                    Thread.sleep(delayTime);
                 } catch (InterruptedException e) {
                     logger.error("InterruptedException" + e.getLocalizedMessage());
                 }
@@ -57,6 +58,17 @@ public class RideExecutor {
         Thread.currentThread().interrupt();
     }
 
+    private void CheckMsgR(MessageReceiver msgR, Ride ride, Section section) {
+        msgR.getMessages().forEach(msg -> {
+            if (msg.contains("<sectionId>" + section.getSectionId())) {
+                section.setSpeed(Integer.parseInt(msg.substring(msg.indexOf("<speed>") + 7, msg.indexOf("</speed>"))));
+            } else if (msg.contains("<RideId" + ride.getRideId())) {
+                System.out.println("stop msg");
+                Thread.currentThread().interrupt();
+            }
+        });
+    }
+
     public void editUpcomingBlocks(Ride ride) {
         int upcomingSection = 0;
         int upcomingBlock = 1;
@@ -67,7 +79,7 @@ public class RideExecutor {
             if (upcomingBlock >= ride.getSections().get(upcomingSection).getBlocks().size() && ride.hasNextSection(upcomingSection)) {
                 upcomingSection++;
                 upcomingBlock = 0;
-            } else {
+            } else if (!ride.hasNextSection(upcomingSection)) {
                 end = true;
             }
         }
@@ -103,9 +115,5 @@ public class RideExecutor {
         System.out.println("detectionMessage");
         message.detectionMessage(rideId, sectionId, blockNr);
 
-    }
-
-    public void endRide(Ride ride) {
-        endRide = true;
     }
 }

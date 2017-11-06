@@ -45,26 +45,4 @@ public class Message {
         }
     }
 
-    public void receivedMessage(String message) {
-        if (message.contains("speedMessage")) {
-            readSpeedMessage(message);
-        } else if (message.contains("stopMessage")) {
-            readStopMessage(message);
-        } else {
-
-        }
-
-    }
-
-    private void readStopMessage(String message) {
-        int rideId = Integer.parseInt(message.substring(message.indexOf("<rideId>"), message.indexOf("</rideId>")));
-    }
-
-    private void readSpeedMessage(String message) {
-        int rideId = Integer.parseInt(message.substring(message.indexOf("<rideId>"), message.indexOf("</rideId>")));
-        int sectionId = Integer.parseInt(message.substring(message.indexOf("<rideId>"), message.indexOf("</rideId>")));
-        int speed = Integer.parseInt(message.substring(message.indexOf("<rideId>"), message.indexOf("</rideId>")));
-
-    }
-
 }

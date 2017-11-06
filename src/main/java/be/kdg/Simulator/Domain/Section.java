@@ -39,6 +39,10 @@ public class Section {
         return speed;
     }
 
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
     public int getNumberOfBlocks() {
         return numberOfBlocks;
     }
@@ -67,7 +71,6 @@ public class Section {
     public void addBlock(Block block) {
         blocks.add(block);
     }
-
 
     public boolean hasBlocks() {
         if (!blocks.isEmpty()) return true;

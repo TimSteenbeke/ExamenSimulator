@@ -24,8 +24,8 @@ public class RideTest {
         trainRides.keySet().forEach(rideId -> {
             rs.addRide(rideId, trainRides.get(rideId));
         });
-        rs.start();
         msgR.start();
+        rs.start(msgR);
         //TODO fix thread running
         while (rs.isExecuting()) {
             rs.stop();

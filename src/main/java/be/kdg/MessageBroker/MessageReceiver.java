@@ -3,9 +3,12 @@ package be.kdg.MessageBroker;
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MessageReceiver {
     private final static String QUEUE_NAME = "detectorQueue";
+    private List<String> messages = new ArrayList<>();
 
     public void start() throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
@@ -21,10 +24,15 @@ public class MessageReceiver {
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
                     throws IOException {
                 String message = new String(body, "UTF-8");
-                System.out.println(" [x] Received '" + message + "'");
-                new Message().receivedMessage(message);
+                System.out.println(" [x] Received ");
+                messages.add(message);
+
             }
         };
         channel.basicConsume(QUEUE_NAME, true, consumer);
+    }
+
+    public List<String> getMessages() {
+        return messages;
     }
 }

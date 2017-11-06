@@ -1,5 +1,6 @@
 package be.kdg.Simulator;
 
+import be.kdg.MessageBroker.MessageReceiver;
 import be.kdg.Simulator.Domain.Ride;
 import be.kdg.Simulator.DomainLoader.RideLoader;
 import org.slf4j.Logger;
@@ -33,22 +34,22 @@ public class TrainRideSimulator {
     }
 
 
-    public void executeRide(Ride ride) {
+/*    public void executeRide(Ride ride) {
         //TODO send start message
         rideExecutor.executeRide(ride);
-    }
+    }*/
 
     public boolean isExecuting() {
         return !this.executorService.isTerminated();
     }
 
-    public void start() {
+    public void start(MessageReceiver msgR) {
         String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
         logger.info("Start: " + timeStamp);
 
         this.executorService = Executors.newScheduledThreadPool(ridesList.size());
         ridesList.forEach(ride -> executorService.schedule(() -> {
-            executeRide(ride);
+            rideExecutor.executeRide(ride, msgR);
 
 
         }, ride.getDelay(), TimeUnit.MILLISECONDS));
