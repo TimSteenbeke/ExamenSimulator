@@ -14,22 +14,22 @@ import java.util.List;
 public class BlockLoader {
     private Logger logger = LoggerFactory.getLogger(BlockLoader.class);
 
-    //
+    //loads info for all blocks in given section
     public void loadBlocks(Section section) {
         List<Integer> crossingsList = new ArrayList<>();
-        if(!section.getCrossings().isEmpty()){
+        if (!section.getCrossings().isEmpty()) {
             List<String> crossingsString = Arrays.asList(section.getCrossings().split("-"));
-            crossingsString.forEach(string->{
+            crossingsString.forEach(string -> {
                 crossingsList.add(Integer.parseInt(string));
             });
         }
 
-        for (int i = 1;i<=section.getNumberOfBlocks();i++){
+        for (int i = 1; i <= section.getNumberOfBlocks(); i++) {
             Block block;
-            if(crossingsList.contains(i)){
-                block = new CrossingBlock(i,section.getBlockLength(),section.isSingleDirection(),section.getSectionId());
-            }else{
-                block = new DetectionBlock(i,section.getBlockLength(),section.isSingleDirection(),section.getSectionId());
+            if (crossingsList.contains(i)) {
+                block = new CrossingBlock(i, section.getBlockLength(), section.isSingleDirection(), section.getSectionId());
+            } else {
+                block = new DetectionBlock(i, section.getBlockLength(), section.isSingleDirection(), section.getSectionId());
             }
             section.addBlock(block);
         }

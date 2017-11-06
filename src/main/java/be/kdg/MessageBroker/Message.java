@@ -13,15 +13,15 @@ public class Message {
     private String timeStamp, xmlMessage;
 
     public void detectionMessage(int rideId, int sectionId, int blockNr) {
-     //TODO: create XML message
+        //TODO: create XML message
         timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
         xmlMessage = "<detectionMessage> " +
-                "<rideId>"+rideId+"</rideId>"+
+                "<rideId>" + rideId + "</rideId>" +
                 "<sectionId>" + sectionId + "</sectionId>" +
                 "<blockNr>" + blockNr + "</blockNr>" +
-                "<TimeStamp>" + timeStamp +"<TimeStamp>" +
+                "<TimeStamp>" + timeStamp + "<TimeStamp>" +
                 "</detectionMessage>";
-        logger.info("Message:" + xmlMessage );
+        logger.info("Message:" + xmlMessage);
         sendMessage(xmlMessage);
     }
 
@@ -31,17 +31,40 @@ public class Message {
                 "<sectionId>" + sectionId + "</sectionId>" +
                 "<blockNr>" + blockNr + "</blockNr>" +
                 "<signal>" + signal + "</signal>" +
-                "<TimeStamp>" + timeStamp +"<TimeStamp>" +
+                "<TimeStamp>" + timeStamp + "<TimeStamp>" +
                 "</signalMessage>";
         logger.info("Message: " + xmlMessage);
         sendMessage(xmlMessage);
     }
 
-    private void sendMessage(String message){
+    private void sendMessage(String message) {
         try {
             ms.sendMessage(message);
         } catch (Exception e) {
             logger.error("Exception" + e.toString());
         }
     }
+
+    public void receivedMessage(String message) {
+        if (message.contains("speedMessage")) {
+            readSpeedMessage(message);
+        } else if (message.contains("stopMessage")) {
+            readStopMessage(message);
+        } else {
+
+        }
+
+    }
+
+    private void readStopMessage(String message) {
+        int rideId = Integer.parseInt(message.substring(message.indexOf("<rideId>"), message.indexOf("</rideId>")));
+    }
+
+    private void readSpeedMessage(String message) {
+        int rideId = Integer.parseInt(message.substring(message.indexOf("<rideId>"), message.indexOf("</rideId>")));
+        int sectionId = Integer.parseInt(message.substring(message.indexOf("<rideId>"), message.indexOf("</rideId>")));
+        int speed = Integer.parseInt(message.substring(message.indexOf("<rideId>"), message.indexOf("</rideId>")));
+
+    }
+
 }

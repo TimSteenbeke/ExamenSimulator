@@ -22,12 +22,12 @@ public class Section {
         this.speed = speed;
     }
 
-    public void setInfoSection(int numberOfBlocks, int blockLength, String crossings, boolean singleDirection, String highBlockNumberSectionId){
+    public void setInfoSection(int numberOfBlocks, int blockLength, String crossings, boolean singleDirection, String highBlockNumberSectionId) {
         this.numberOfBlocks = numberOfBlocks;
-        this.blockLength=blockLength;
-        this.crossings=crossings;
-        this.singleDirection=singleDirection;
-        this.highBlockNumberSectionId =highBlockNumberSectionId;
+        this.blockLength = blockLength;
+        this.crossings = crossings;
+        this.singleDirection = singleDirection;
+        this.highBlockNumberSectionId = highBlockNumberSectionId;
     }
 
     //Getters for all values
@@ -70,28 +70,32 @@ public class Section {
 
 
     public boolean hasBlocks() {
-        if(!blocks.isEmpty()) return true;
+        if (!blocks.isEmpty()) return true;
 
         return false;
     }
 
-    public boolean hasNextBlock(int index){
-        if(blocks.size()-1>index)
+    public boolean hasNextBlock(int index) {
+        if (blocks.size() - 1 > index)
             return true;
         return false;
     }
 
-    public void removeFirstBlock(){blocks.remove(0);}
+    public void removeFirstBlock() {
+        blocks.remove(0);
+    }
 
-    public void removeBlock(Block block){blocks.remove(block);}
+    public void removeBlock(Block block) {
+        blocks.remove(block);
+    }
 
     @Override
     public String toString() {
-        return "Section: { sectionId: " + sectionId +", speed: " + speed + ", numberOfBlocks:" + numberOfBlocks +", blockLength: " + blockLength +
-                ", crossings: " + crossings + ", singleDirection: " + singleDirection +", highBlockNumberSectionId: " + highBlockNumberSectionId + '}';
+        return "Section: { sectionId: " + sectionId + ", speed: " + speed + ", numberOfBlocks:" + numberOfBlocks + ", blockLength: " + blockLength +
+                ", crossings: " + crossings + ", singleDirection: " + singleDirection + ", highBlockNumberSectionId: " + highBlockNumberSectionId + '}';
     }
 
-    public String showBlocksToString(){
+    public String showBlocksToString() {
         return "blocks: {" + blocks + "}";
     }
 }

@@ -11,7 +11,7 @@ public class DetectionBlock implements Block {
         this.blockId = blockId;
         this.blockLength = blockLength;
         this.singleDirection = singleDirection;
-        this.sectionIdBlock=sectionIdBlock;
+        this.sectionIdBlock = sectionIdBlock;
     }
 
     @Override

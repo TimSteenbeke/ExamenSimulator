@@ -9,8 +9,8 @@ public class Ride {
     private List<Section> sections = new ArrayList<>();
 
     public Ride(Integer rideId, Integer dealay) {
-        this.rideId=rideId;
-        this.delay=dealay;
+        this.rideId = rideId;
+        this.delay = dealay;
     }
 
     public int getRideId() {
@@ -30,7 +30,7 @@ public class Ride {
     }
 
     public boolean hasSections() {
-        if(!sections.isEmpty())
+        if (!sections.isEmpty())
             return true;
 
         return false;
@@ -40,22 +40,21 @@ public class Ride {
         sections.remove(0);
     }
 
-    public void removeSection(Section section){
+    public void removeSection(Section section) {
         sections.remove(section);
     }
 
-    public boolean hasNextSection(int index){
-        if(sections.size()-1>index)
+    public boolean hasNextSection(int index) {
+        if (sections.size() - 1 > index)
             return true;
         return false;
     }
 
-    public Section getSection(int sectionId){
+    public Section getSection(int sectionId) {
         final Section[] sectionGet = {null};
-        sections.forEach(section->{
-            if(section.getSectionId()==sectionId)
-            {
-                sectionGet[0] =section;
+        sections.forEach(section -> {
+            if (section.getSectionId() == sectionId) {
+                sectionGet[0] = section;
             }
         });
         return sectionGet[0];
@@ -63,6 +62,6 @@ public class Ride {
 
     @Override
     public String toString() {
-        return "Ride: { rideId: " + rideId +", Delay: "+ delay + ", sections: " + sections +'}';
+        return "Ride: { rideId: " + rideId + ", Delay: " + delay + ", sections: " + sections + '}';
     }
 }
