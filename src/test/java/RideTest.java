@@ -16,11 +16,11 @@ public class RideTest {
         TrainRideSimulator rs = new TrainRideSimulator();
         MessageReceiver msgR = new MessageReceiver();
         trainRides.put(1, 1000);
-        //trainRides.put(2,2000);
-        //trainRides.put(3,5000);
-        //trainRides.put(4,10000);
-        //trainRides.put(5,7000);
-        //trainRides.put(13,12000);
+        trainRides.put(2,2000);
+        trainRides.put(3,5000);
+        trainRides.put(4,10000);
+        trainRides.put(5,7000);
+        trainRides.put(13,12000);
         trainRides.keySet().forEach(rideId -> {
             rs.addRide(rideId, trainRides.get(rideId));
         });

@@ -12,8 +12,8 @@ public class Message {
     private MessageSender ms = new MessageSender();
     private String timeStamp, xmlMessage;
 
+    //Creates detection message and put's on Queue
     public void detectionMessage(int rideId, int sectionId, int blockNr) {
-        //TODO: create XML message
         timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
         xmlMessage = "<detectionMessage> " +
                 "<rideId>" + rideId + "</rideId>" +
@@ -25,6 +25,7 @@ public class Message {
         sendMessage(xmlMessage);
     }
 
+    //creates signal message and put's on queue
     public void signalMessage(int sectionId, int blockNr, int signal) {
         timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
         xmlMessage = "<signalMessage> " +
@@ -37,6 +38,7 @@ public class Message {
         sendMessage(xmlMessage);
     }
 
+    //put's messages on the queue
     private void sendMessage(String message) {
         try {
             ms.sendMessage(message);

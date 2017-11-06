@@ -37,9 +37,9 @@ public class RideExecutor {
         while (ride.hasSections()) {
             Section section = ride.getSections().get(0);
             while (section.hasNextBlock(0)) {
-                /*if(msgR.getMessages().size()>0){
+                if(msgR.getMessages().size()>0){
                     CheckMsgR(msgR,ride,section);
-                }*/
+                }
                 Block block = section.getBlocks().get(0);
                 long delayTime = block.getBlockLength() / section.getSpeed() * 1000;
                 editUpcomingBlocks(ride);
