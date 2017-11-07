@@ -26,6 +26,7 @@ public class TrainRideSimulator {
     private RideExecutor rideExecutor = new RideExecutor();
     private RideLoader rideLoader = new RideLoader();
 
+    //Adds rides to the list in the class
     public void addRide(Integer rideId, Integer delay) {
         Ride ride = new Ride(rideId, delay);
         logger.info("Ride created:  " + ride.getRideId());
@@ -33,16 +34,12 @@ public class TrainRideSimulator {
         ridesList.add(ride);
     }
 
-
-/*    public void executeRide(Ride ride) {
-        //TODO send start message
-        rideExecutor.executeRide(ride);
-    }*/
-
+    //checks if executorservice is running
     public boolean isExecuting() {
         return !this.executorService.isTerminated();
     }
 
+    //Starts simulating trainrides by executing rides with messages and receiving messages
     public void start(MessageReceiver msgR) {
         String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
         logger.info("Start: " + timeStamp);
@@ -56,6 +53,7 @@ public class TrainRideSimulator {
 
     }
 
+    //stops executorservice
     public void stop() {
         if (executorService == null) {
             executorService.shutdown();

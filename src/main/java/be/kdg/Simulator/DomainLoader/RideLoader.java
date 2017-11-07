@@ -17,7 +17,7 @@ import java.util.List;
 
 public class RideLoader {
     private final String url = "www.services4se3.com/railway/route/";
-    private final RouteServiceProxy RSP = new RouteServiceProxy(); //TODO: creat new RSP for each ride ?
+    private final RouteServiceProxy RSP = new RouteServiceProxy();
     private Logger logger = LoggerFactory.getLogger(RideLoader.class);
     private List<Section> sections = new ArrayList<>();
 
